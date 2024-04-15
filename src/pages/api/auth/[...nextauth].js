@@ -1,5 +1,7 @@
 import NextAuth from 'next-auth';
 import Google from 'next-auth/providers/google';
+// import clientPromise from '../../../lib/db';
+// import { MongoDBAdapter } from '@auth/mongodb-adapter';
 
 function getGoogleCredentials() {
   const clientId = process.env.GOOGLE_CLIENT_ID;
@@ -20,6 +22,7 @@ function getGoogleCredentials() {
 }
 
 export const authOptions = {
+  // adapter: MongoDBAdapter(clientPromise),
   providers: [
     Google({
       clientId: getGoogleCredentials().clientId,
